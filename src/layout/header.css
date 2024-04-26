@@ -45,6 +45,9 @@ font-style: normal; */
 
 li {
   position: relative;
+  font-size:18px;
+  position:relative;
+
 }
 
 /* ul li a.nav-link {
@@ -119,11 +122,6 @@ list-style: none;
 display:flex;
 flex-direction: row;
 position: relative;
-}
-
-li{
-  font-size:18px;
-  position:relative;
 }
 
 #HomeTag{

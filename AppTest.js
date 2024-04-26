@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/order */
-// import './App.css';
+/* eslint-disable import/order */ 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { HelmetProvider } from 'react-helmet-async';
@@ -21,7 +20,6 @@ import Register from './pages/auth/register';
 import LoginPage from './pages/auth/login/login';
 import SendLoginOtp from './pages/auth/login/SendLoginOtp';
 import LoginWithOtp from './pages/auth/login/loginWithOtp';
-// import ProtectedRoute from './routes/protectedRoute';
 import DashboardPage from './pages/admin/dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -68,8 +66,6 @@ function App() {
             <ToastContainer theme="dark" />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              {/* <Route path="/search/:keyword" element={<ProductSearch />} />
-              <Route path="/product/:id" element={<ProductDetail />} /> */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/login/otp" element={<SendLoginOtp />} />
               <Route path="/loginWithOtp" element={<LoginWithOtp />} />
@@ -99,231 +95,114 @@ function App() {
               <Route
                 path="/order/confirm"
                 element={
-                  // <ProtectedRoute>
+
                   <ConfirmOrder />
-                  // </ProtectedRoute>
+
                 }
               />
               <Route
                 path="/order/success"
                 element={
-                  // <ProtectedRoute>
+
                   <OrderSuccess />
-                  // </ProtectedRoute>
+
                 }
               />
               <Route
                 path="/order"
                 element={
-                  // <ProtectedRoute>
+
                   <OrderDetails />
-                  // </ProtectedRoute>
+
                 }
               />
               <Route
                 path="/deliveryAddress"
                 element={
-                  // <ProtectedRoute>
+
                   <DeliveryInfo />
-                  // </ProtectedRoute>
+
                 }
               />
               <Route
                 path="/reviews"
                 element={
-                  // <ProtectedRoute isAdmin>
+
                   <Reviews />
-                  // </ProtectedRoute>
+
                 }
               />
               <Route
                 path="/myProfile"
                 element={
-                  // <ProtectedRoute>
+
                   <Profile />
-                  // </ProtectedRoute>
+
                 }
               />
-              {/* 
-              <Route
-                path="/myprofile/update"
-                element={
-                  <ProtectedRoute>
-                    <UpdateProfile />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/myprofile/update/password"
-                element={
-                  <ProtectedRoute>
-                    <UpdatePassword />
-                  </ProtectedRoute>
-                }
-              />
-                       
-             
-              <Route
-                path="/order/:id"
-                element={
-                  <ProtectedRoute>
-                    <OrderDetail />
-                  </ProtectedRoute>
-                }
-              />
-              {stripeApiKey && (
-                <Route
-                  path="/payment"
-                  element={
-                    <ProtectedRoute>
-                      <Elements stripe={loadStripe(stripeApiKey)}>
-                        <Payment />
-                      </Elements>
-                    </ProtectedRoute>
-                  }
-                /> 
-              )} */}
             </Routes>
           </div>
-          {/* Admin Routes */}
           <Routes>
             <Route
               path="/admin/dashboard"
               element={
-                // <ProtectedRoute isAdmin>
                 <DashboardPage />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/orderHistory"
               element={
-                // <ProtectedRoute isAdmin>
                 <OrdersHistory />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/orders"
               element={
-                // <ProtectedRoute isAdmin>
                 <OrdersTable />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/order"
               element={
-                // <ProtectedRoute isAdmin>
                 <OrderStatus />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/updateMenu"
               element={
-                // <ProtectedRoute isAdmin>
                 <UpdateMenu />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/updateRestaurant"
               element={
-                // <ProtectedRoute>
                 <UpdateRestaurant />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/users"
               element={
-                // <ProtectedRoute isAdmin>
                 <UsersList />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/menus"
               element={
-                // <ProtectedRoute isAdmin>
                 <MenuList />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/createMenu"
               element={
-                // <ProtectedRoute isAdmin>
                 <CreateMenu />
-                // </ProtectedRoute>
               }
             />
             <Route
               path="/admin/restaurants"
               element={
-                // <ProtectedRoute isAdmin>
                 <RestaurantTable />
-                // </ProtectedRoute>
               }
             />{' '}
-            {/* 
-            <Route
-              path="/admin/products/create"
-              element={
-                <ProtectedRoute isAdmin>
-                  <NewProduct />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/product/:id"
-              element={
-                <ProtectedRoute isAdmin>
-                  <UpdateProduct />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/orders"
-              element={
-                <ProtectedRoute isAdmin>
-                  <OrderList />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/order/:id"
-              element={
-                <ProtectedRoute isAdmin>
-                  <UpdateOrder />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/users"
-              element={
-                <ProtectedRoute isAdmin>
-                  <UserList />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/user/:id"
-              element={
-                <ProtectedRoute isAdmin>
-                  <UpdateUser />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/reviews"
-              element={
-                <ProtectedRoute isAdmin>
-                  <ReviewList />
-                </ProtectedRoute>
-              }
-            /> */}
           </Routes>
           <Footer />
         </HelmetProvider>

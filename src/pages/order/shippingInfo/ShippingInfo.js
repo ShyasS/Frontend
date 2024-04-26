@@ -170,7 +170,9 @@ const ShippingInfo1 = () => {
       const apiUrl = '/api/send/otp';
       // console.log('Mobile Number:', emailOrMobile);
       // Check if the input is an email or a phone number
-      const isEmail = /\S+@\S+\.\S+/.test(emailOrMobile);
+      const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailOrMobile);
+      console.log(isEmail);
+      // /\S+@\S+\.\S+/ 
       const isPhone = /^\d{10}$/.test(emailOrMobile);
 
       // Send the request to get OTP

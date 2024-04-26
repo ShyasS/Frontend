@@ -70,7 +70,7 @@ export default function CarouselForm() {
   return (
     <div className="row">
       <div className="col-12 col-md-10">
-        <>
+     
           <div className="wrapper my-5">
             <form
               onSubmit={submitHandler}
@@ -128,7 +128,6 @@ export default function CarouselForm() {
               </button>
             </form>
           </div>
-        </>
       </div>
     </div>
   );

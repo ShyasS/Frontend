@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import './ReusableTable.css';
 
 const ReusableTable = ({
@@ -22,11 +23,24 @@ const ReusableTable = ({
 }) => {
   const [sortOrder, setSortOrder] = useState('asc');
   const [sortedColumn, setSortedColumn] = useState(null);
+  // const handleSort = (column) => {
+  //   setSortOrder(
+  //     column === sortedColumn ? (sortOrder === 'asc' ? 'desc' : 'asc') : 'asc'
+  //   );
+  //   setSortedColumn(column);
+  // };
+  
+  // Newly added the HandleSort:---------------- Refer the above code if any issue in HandleSort:;----
 
   const handleSort = (column) => {
-    setSortOrder(
-      column === sortedColumn ? (sortOrder === 'asc' ? 'desc' : 'asc') : 'asc'
-    );
+    let newSortOrder;
+  
+    if (column === sortedColumn) {
+      newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      newSortOrder = 'asc';
+    }
+    setSortOrder(newSortOrder);
     setSortedColumn(column);
   };
   const mapHeaderToProperty = (header) => {
@@ -38,25 +52,20 @@ const ReusableTable = ({
       case 'Price':
         return 'price';
       case 'Customer':
-        return 'customer'; // Replace with the actual property name for 'Sl No'
+        return 'customer'; 
       case 'Restaurant ID':
-        return '_id'; // Replace with the actual property name for 'Restaurant ID'
+        return '_id'; 
       case 'Restaurant Branch':
         return 'restaurantBranch';
-      // Add more cases as needed
-
       default:
-        // Default to the header itself (converted to lowercase)
         return header.toLowerCase();
     }
   };
-
   const renderTableData = () => {
     const sortedData = data.slice().sort((a, b) => {
       if (sortedColumn === 'name') {
         const fullNameA = `${a.name} ${a.lastName}`;
         const fullNameB = `${b.name} ${b.lastName}`;
-
         return sortOrder === 'asc'
           ? fullNameA.localeCompare(fullNameB)
           : fullNameB.localeCompare(fullNameA);
@@ -79,7 +88,6 @@ const ReusableTable = ({
           ? a.role.localeCompare(b.role)
           : b.role.localeCompare(a.role);
       }
-      // Add additional cases for other columns if needed
       return 0;
     });
 
@@ -126,16 +134,10 @@ const ReusableTable = ({
           if (header === 'Opening Hours') {
             return <td key={header}> <p id="CardText">{item.openingHours}</p></td>;
           }
-          // if (header === 'Restaurant Branch') {
-          //   return <td key={header}>{item.restaurantBranch}</td>;
-          // }
           if (header === 'Restaurant Branch') {
             return (
               <td key={header} onClick={() => handleSort('restaurantBranch')}>
               <p id="CardText">{item.restaurantBranch}{' '}</p>
-                {/* {sortedColumn === 'restaurantBranch' && sortOrder === 'asc'
-                  ? ' ↑'
-                  : ' ↓'} */}
               </td>
             );
           }
@@ -143,7 +145,7 @@ const ReusableTable = ({
             return <td key={header}>  <p id="CardText">{item._id}</p></td>;
           }
           if (header === 'Status') {
-            return <td key={header}>  <p id="CardText">{item.orderStatus}</p> </td>;
+            return  <td key={header}>  <p id="CardText">{item.orderStatus}</p> </td>;
           }
           if (header === 'Pickup/Delivery Time') {
             return <td key={header}> <p id="CardText">{item.selectedTimeSlot}</p></td>;
@@ -175,7 +177,6 @@ const ReusableTable = ({
             return (
               <td key={header} onClick={() => handleSort('name')}>
                 <p id="CardText"> {item.name}{' '}</p>
-                {/* {sortedColumn === 'name' && sortOrder === 'asc' ? ' ↑' : ' ↓'} */}
               </td>
             );
           }
@@ -195,7 +196,6 @@ const ReusableTable = ({
                   onClick={() => handleSort('name')}
                 >
                  <p id="CardText">  {item.name} {item.lastName}</p>
-                  {/* {sortedColumn === 'name' && sortOrder === 'asc' ? ' ↑' : ' ↓'} */}
                 </td>
               </div>
             );
@@ -204,7 +204,6 @@ const ReusableTable = ({
             return (
               <td key={header} onClick={() => handleSort('role')}>
                <p id="CardText">  {item.role}{' '}</p>
-                {/* {sortedColumn === 'role' && sortOrder === 'asc' ? ' ↑' : ' ↓'} */}
               </td>
             );
           }
@@ -212,14 +211,15 @@ const ReusableTable = ({
             return (
               <td key={header} onClick={() => handleSort('customer')}>
                 <p id="CardText"> {item.shipping.name}{' '}</p>
-                {/* {sortedColumn === 'customer' && sortOrder === 'asc'
-                  ? ' ↑'
-                  : ' ↓'} */}
               </td>
             );
           }
-          // Use a fallback value if the property is not found
-          return <td key={header}> <p id="CardText">{item[header.toLowerCase()] || 'N/A'}</p></td>;
+          // return <td key={header}> <p id="CardText">{item[header.toLowerCase()] || 'N/A'}</p></td>;
+          return (
+            <td key={header}>
+              <p id="CardText">{item[header.toLowerCase()] || 'N/A'}</p>
+            </td>
+          );
         })}
         {onUpdate && (
           <td>
@@ -289,7 +289,7 @@ const ReusableTable = ({
   return (
     <div>
       <Table bordered responsive className=" mt-4 text-center w-100 ">
-        <thead className="table-head " id="CardBackIMg1">
+        <thead className="table-head" id="CardBackIMg1">
           <tr>
             {headers.map((header) => (
               <th
@@ -298,11 +298,6 @@ const ReusableTable = ({
                 onClick={() => handleSort(mapHeaderToProperty(header))}
               >
                 {header}
-                {/* {mapHeaderToProperty(header) !== 'Sl No' &&
-              mapHeaderToProperty(header) !== 'Category' &&
-              sortOrder === 'asc'
-                ? ' ↑'
-                : ' ↓'} */}
               </th>
             ))}
             {onEdit && <th>Update</th>}
@@ -318,5 +313,14 @@ const ReusableTable = ({
     </div>
   );
 };
-
+ReusableTable.propTypes = {
+  headers: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onAddMenu: PropTypes.func.isRequired,
+  onViewDetails: PropTypes.func.isRequired
+};
 export default ReusableTable;

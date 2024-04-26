@@ -39,7 +39,7 @@ describe('Header', () => {
     });
     expect(orderLink).toBeInTheDocument();
 
-    await user.click(orderLink);
+     user.click(orderLink);
     const orderPage = screen.getByRole('link', {
       name: /order/i
     });

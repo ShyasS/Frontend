@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import Loader from '../layout/Loader';
-
 // eslint-disable-next-line react/prop-types
 export default function ProtectedRoute({ children, isAdmin }) {
   const { isAuthenticated, loading, user } = useSelector(
@@ -23,3 +22,5 @@ export default function ProtectedRoute({ children, isAdmin }) {
     return <Loader />;
   }
 }
+
+ProtectedRoute

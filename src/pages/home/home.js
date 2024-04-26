@@ -50,7 +50,7 @@ const HomePage = () => {
 
   if (error) {
     alert('Error!');
-    return null; // or handle the error in a way that makes sense for your application
+    return null;
   }
   return (
     <div>
