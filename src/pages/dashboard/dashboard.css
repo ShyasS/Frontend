@@ -11,18 +11,6 @@
     background-size: cover;
     background-position: center;
 }
-
-/* #Menu{
-  background-image: url('../../assets/img/Bg5.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-#Menu:hover{
-  background-image: url('../../assets/img/Bg6.jpg');
-  transition: 0.8s ease;
-} */
-
 #Order{
   background-image: url('../../assets/img/Bg2.jpg');
   background-repeat: no-repeat;

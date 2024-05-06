@@ -3,7 +3,6 @@
   border: none !important;
 border-radius: 0 !important;
 margin: 2px;
-  /* Add other styles as needed */
 }
 .address-container label {
   text-align: left;
@@ -37,7 +36,6 @@ margin: 2px;
 }
 
 .pagination li.active {
-  /* background-color: #b96c7b; */
   color: #3c3b3b;
 }
 
