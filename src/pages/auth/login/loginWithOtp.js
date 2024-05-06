@@ -14,7 +14,6 @@ const LoginWithOtp = () => {
   const validator = useRef(
     new SimpleReactValidator({ className: 'text-danger' })
   );
-
   const handleLogin = async (e) => {
     e.preventDefault();
     if (validator.current.allValid()) {
@@ -25,18 +24,7 @@ const LoginWithOtp = () => {
         document.cookie = `token=${token}; path=/;`;
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('isloggedIn', 'true');
-        // localStorage.setItem('user', JSON.stringify(user));
-        // toast.success('Login successful!', {
-        //   position: 'top-right',
-        //   autoClose: 3000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true
-        // });
         setLoading(false);
-
-        // Redirect logic based on user role
         if (user && user.role !== 'user') {
           navigate('/admin/dashboard');
           localStorage.removeItem('emailOrPhone');
@@ -44,7 +32,6 @@ const LoginWithOtp = () => {
           navigate('/');
         }
       } catch (error) {
-        // console.error('Login failed:', error.message);
         alert('Login failed. Please try again.');
         setLoading(false);
       }

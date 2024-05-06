@@ -39,7 +39,6 @@ const LoginPage = () => {
       localStorage.setItem('user', JSON.stringify(user));
     }
     if (error) {
-      // console.log(error);
       alert(error, {
         onClose: () => {
           dispatch(clearAuthError);
@@ -48,7 +47,6 @@ const LoginPage = () => {
     }
     if (isAuthenticated) {
       const user = JSON.parse(localStorage.getItem('user'));
-      // const user = JSON.parse(localStorage.getItem('user'));
       if (user && user.role !== 'user') {
         navigate('/admin/dashboard');
       } else {

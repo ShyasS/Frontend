@@ -3,11 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Button, Card } from 'react-bootstrap';
-// import '../auth/register/SignUpForm.css';
-
 const CreateAdmin = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -21,13 +17,11 @@ const CreateAdmin = () => {
     restaurantBranch: '',
     restaurantId: ''
   });
-  const [restaurantBranches, setRestaurantBranches] = useState([]); // Updated
-  const [restaurantIds, setRestaurantIds] = useState([]); // Updated
+  const [restaurantBranches, setRestaurantBranches] = useState([]); 
+  const [restaurantIds, setRestaurantIds] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Find the corresponding restaurant ID for the selected branch
     const selectedId = restaurantIds.find(
       (id, index) => restaurantBranches[index] === value
     );
@@ -46,29 +40,18 @@ const CreateAdmin = () => {
     e.preventDefault();
 
     try {
-      // Make the axios call to your login API endpoint
       const response = await axios.post('/api/register', formData);
-
-      // Handle success, for example, show a success message or redirect
-      // console.log('Register successful', response.data);
-
-      // Show success toast
       alert('Registration successful!');
     } catch (error) {
-      // Handle error
       console.error('error', error.response.data.message);
-
-      // Show error toast
       alert(`${error.response.data.message}`);
     }
   };
   useEffect(() => {
-    // Fetch restaurant branches and ids from API
     const fetchRestaurantData = async () => {
       try {
         const branchesResponse = await axios.get('/api/restaurant/get');
         const restaurants = branchesResponse.data.data;
-        // Separate branches and ids
         const branches = restaurants.map(
           (restaurant) => restaurant.restaurantBranch
         );
@@ -78,11 +61,8 @@ const CreateAdmin = () => {
         setRestaurantIds(ids);
       } catch (error) {
         console.error('Error fetching restaurant data:', error);
-        // Handle error (e.g., show a toast)
       }
     };
-
-    // Call the fetchRestaurantData function
     fetchRestaurantData();
   }, []);
 
@@ -258,7 +238,6 @@ const CreateAdmin = () => {
             </select>
           </div>
           <div className="mb-3">
-            {/* Hide the Restaurant Id select input from the UI */}
             <input
               type="hidden"
               id="restaurantId"
@@ -276,5 +255,4 @@ const CreateAdmin = () => {
     </div>
   );
 };
-
 export default CreateAdmin;

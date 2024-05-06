@@ -20,18 +20,13 @@ const LocationComponent = () => {
 
         const { latitude, longitude } = position.coords;
         setUserLocation({ latitude, longitude });
-
-        // Assuming you want to fetch additional data using the obtained coordinates
-        // const bdcAPI = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`;
         const address = ` https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=70348c75b2aa4bd0b91fcba1f9e3a0dc`;
         const response = await axios.get(address);
         const { data } = response;
 
         console.log(data);
         notifySuccess('Location fetched successfully.');
-        setToastShown(true); // Set toastShown to true after displaying the toast
-
-        // Now, make a request to your server for distance calculation
+        setToastShown(true);
         const distanceResponse = await axios.post('/api/calculate-distance', {
           latitude,
           longitude

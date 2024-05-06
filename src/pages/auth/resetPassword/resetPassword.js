@@ -2,13 +2,12 @@
 import { useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import SimpleReactValidator from 'simple-react-validator';
-import axios from 'axios'; // Import Axios for API requests
+import axios from 'axios';
 import '../login/login.scss';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  // const [showHeader, setShowHeader] = useState(false);
   const validator = useRef(
     new SimpleReactValidator({ className: 'text-danger' })
   );
@@ -20,13 +19,10 @@ const ResetPassword = () => {
 
     if (validator.current.allValid()) {
       try {
-        // Make the API request using Axios
         const response = await axios.put(`/api/password/reset/${token}`, {
           password,
           confirmPassword
         });
-
-        // Handle the response based on the message
         console.log('Password reset success:', response.data);
         alert('Reset success');
         navigate('/login');

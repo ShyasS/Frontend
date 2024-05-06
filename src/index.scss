@@ -1,22 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
-
-// :root {
-//   --bs-primary-rgb: 0, 98, 204;
-//   --bs-secondary-rgb: 237, 28, 36;
-// }
-// .btn-custom {
-//   background-color: #ffa500 !important;
-//   border: none !important;
-// border-radius: 0 !important;
-// margin: 2px;
-// }
-// body {
-//   font-family: 'Poppins', sans-serif;
-//   // color: #EE402F !important;
-//   // background-color: #EE402F !important; 
-// }
 .my-global-button {
-  /* Your common button styles go here */
   background-color: #809aef !important;
   color: #fff !important;
   padding: 10px 20px;
@@ -27,18 +10,13 @@
   padding-right: 20px !important;
   padding-left: 20px !important;
   text-align: center !important;
-  font-size: 1.1rem !important; /* Adjust the base font size as needed */
+  font-size: 1.1rem !important;
 }
-
-/* Responsive font size for smaller screens */
 @media (max-width: 576px) {
   .my-global-button {
-    font-size: 0.6rem !important; /* Adjust the font size for smaller screens */
+    font-size: 0.6rem !important;
   }
 }
-
-
 .my-global-button:hover {
-  /* Styles for the button on hover */
   background-color: #3c4d85 !important;
 }

@@ -2,13 +2,9 @@
 /* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/no-array-index-key */
-
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-// import Sidebar from './Sidebar';
-
 export default function CarouselForm() {
   const [description, setDescription] = useState('');
   const [images, setImages] = useState([]);
@@ -70,7 +66,6 @@ export default function CarouselForm() {
   return (
     <div className="row">
       <div className="col-12 col-md-10">
-     
           <div className="wrapper my-5">
             <form
               onSubmit={submitHandler}

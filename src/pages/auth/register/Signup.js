@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
-  // const navigate = useNavigate();
   const defaultAvatarImage =
     'https://th.bing.com/th/id/OIP.QTPhxyhDQjv4eE1mA4ulLAHaJs?w=168&h=220&c=7&r=0&o=5&dpr=1.3&pid=1.7';
   const [formData, setFormData] = useState({
@@ -16,7 +15,6 @@ const SignUpForm = () => {
     confirmPassword: '',
     email: '',
     avatar: defaultAvatarImage,
-    // confirmEmail: '',
     phone: ''
   });
 
@@ -31,32 +29,20 @@ const SignUpForm = () => {
     e.preventDefault();
 
     try {
-      // Make the axios call to your login API endpoint
       const response = await axios.post('/api/register', formData);
-
-      // Handle success, for example, show a success message or redirect
-      // console.log('Register successful', response.data);
-
-      // Show success toast
       alert('Registration link has sent to your email successfully!');
-      // navigate('/');
     } catch (error) {
-      // Handle error
-      // console.error('error', error.response.data.message);
-
-      // Show error toast
       alert(`${error.response.data.message}`);
     }
   };
   const defaultAvatarStyle = {
     display: formData.avatar === defaultAvatarImage ? 'block' : 'none',
-    maxWidth: '100px' // Adjust the size as needed
+    maxWidth: '100px' 
   };
 
   const customAvatarStyle = {
     display: formData.avatar !== defaultAvatarImage ? 'block' : 'none',
-    maxWidth: '100px' // Adjust the size as needed
-    // Add additional styles for custom avatar if needed
+    maxWidth: '100px' 
   };
   const avatarContainerStyle = {
     textAlign: 'center'

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useRef } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import {
-  // clearAuthError,
   sendLoginOtp
 } from '../../../redux-toolkit/actions/auth';
 import './login.scss';
@@ -22,10 +21,8 @@ const SendLoginOtp = () => {
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/');
-      // console.log('Logged in successfully');
     }
     if (error) {
-      // console.log(error);
       alert('Failed!');
     }
   }, [error, isAuthenticated, dispatch, navigate]);

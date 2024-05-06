@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   margin-left: auto;
-  /* Push the buttons to the right */
 }
 
 h1,
@@ -26,9 +25,6 @@ div {
     "CASL" 0,
     "CRSV" 0.5,
     "MONO" 0 !important;
-  /* font-family: "Abel", sans-serif;
-font-weight: 500;
-font-style: normal; */
 }
 
 .p2 {
@@ -36,37 +32,12 @@ font-style: normal; */
   margin-top: 5px;
   position: relative
 }
-
-/* span:hover {
-  text-decoration: underline !important;
-  color: "red";
-} */
-
-
 li {
   position: relative;
   font-size:18px;
   position:relative;
 
 }
-
-/* ul li a.nav-link {
-  text-decoration: none;
-  color: #7C269B;
-  font-size: 20px;
-  transition: all 1s ease;
-}
-
-ul li a.nav-link::after {
-  content: '';
-  height: 2px;
-  color: #7C269B;
-  background-color: #7C269B;
-  position: absolute;
-  left: 5px;
-  bottom: 6px;
-} */
-
 ul li a{
   color:rgb(0, 0, 0);
 }
@@ -82,18 +53,10 @@ ul li a.active::after {
   height: 2px;
   width: 100%;
   color: #080808;
-  /* background-color: #7C269B; */
   position: absolute;
   left: 5px;
   bottom: 6px;
 }
-
-/* ul li a.nav-link:hover::after {
- width:100%;
-
-} */
-
-
 #HomeTag::after {
   content: '';
   height: 2px;
@@ -107,12 +70,9 @@ ul li a.active::after {
 #HomeTag:hover::after {
   width: 100%;
   transition: 0.5s;
-  /* background-color: #ff0d0d; */
-
 }
 
 #HomeTag:hover {
-  /* background: radial-gradient(95% 85% at 50% 50%, #f6d6ff 0, rgba(246, 220, 255, 0) 100%); */
   color: #030303;
 }
 
@@ -131,12 +91,10 @@ position: relative;
 
 
 .my-global-button1:hover {
-  /* Styles for the button on hover */
   background-color: #9a9eaa !important;
 }
 
 .my-global-button1 {
-  /* Your common button styles go here */
   background-color: #dee7ff !important;
   color: #000000 !important;
   padding: 10px 20px;
@@ -147,7 +105,7 @@ position: relative;
   padding-right: 20px !important;
   padding-left: 20px !important;
   text-align: center !important;
-  font-size: 1.1rem !important; /* Adjust the base font size as needed */
+  font-size: 1.1rem !important; 
 }
 
 
@@ -171,37 +129,16 @@ position: relative;
   #HomeTag:hover::after{
     width:50%;
   }
-  /* #HomeTag::after {
-   display:none;
-  } */
-/*   
-  #HomeTag:hover::after {
-display: none;
-  } */
   ul li a.active::after {
     width:25%;
     position: absolute;
     left: 0px;
     bottom: 0px;
   }
-  /* ul li a.active{
-    display: none;
-  } */
-  /* ul li a.active::after{
-    display: none;
-  } */
-  /* #HomeTag::after {
-    display: none;
-  }
-  #HomeTag:hover::after{
-    display: none;
-  }
-   */
 }
 
 @media (max-width: 991.98px) {
   .logout-login-buttons {
     margin-left: 0;
-    /* Reset margin on screens smaller than medium */
   }
 }

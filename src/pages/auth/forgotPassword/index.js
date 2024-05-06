@@ -56,7 +56,6 @@ const ForgotPasswordPage = () => {
 
   useEffect(() => {
     return () => {
-      // Cleanup code if needed
     };
   }, []);
 

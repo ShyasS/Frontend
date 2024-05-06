@@ -1,5 +1,3 @@
-SignUpForm.js 
-
 .signup-form-container {
   max-width: auto;
   margin: 0 auto;
@@ -63,7 +61,6 @@ SignUpForm.js
     background-color: transparent;
   }
   #LoginImg1{
-    /* background-image:linear-gradient(rgba(0,0,0,0.7), rgba(108, 87, 87, 0.7)), url('../../../assets/img/dark-gradient-background-with-copy-space_53876-99548.avif');; */
     background: rgb(189, 187, 255);
     background: linear-gradient(90deg, rgb(145, 141, 219) 18%, rgba(157, 157, 230, 0.88) 52%, rgb(136, 169, 213) 87%);
     color: white;
