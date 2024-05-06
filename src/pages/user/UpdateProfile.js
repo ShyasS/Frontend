@@ -9,7 +9,7 @@ import MetaData from 'layout/MetaData';
 import { Link } from 'react-router-dom';
 
 export default function UpdateProfile() {
-  const userId = JSON.parse(sessionStorage.getItem('user'));
+  const userId = JSON.parse(localStorage.getItem('user'));
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
@@ -45,9 +45,6 @@ export default function UpdateProfile() {
           'Content-type': 'multipart/form-data'
         }
       });
-
-      // console.log('Server Response:', response.data);
-
       if (response.data.success) {
         alert('Profile updated successfully');
       }
