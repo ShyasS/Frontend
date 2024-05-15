@@ -9,7 +9,10 @@ import './index.css';
 
 const MenuList = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user?.restaurantId === undefined) {
+    return <div><h1>Loading...</h1></div>;
+  }
   const { restaurantId } = user;
   const { role } = user;
   const [menuData, setMenuData] = useState([]);
@@ -30,8 +33,6 @@ const MenuList = () => {
         const restaurantId = { restaurantId: selectedBranch };
         response = await axios.post('/api/admin/products/branch', restaurantId);
       }
-
-      // Extract the menus array from the response, handling both object and array responses
       const menus = Array.isArray(response.data)
         ? response.data
         : response.data.data;

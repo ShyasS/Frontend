@@ -51,6 +51,8 @@ import CustomerList from 'pages/user/CustomerList';
 import Cart from './pages/order/cart';
 import Landing from 'pages/home/LandingPage/Home';
 import OrdersTable1 from 'pages/order/UserOrderList';
+import ProtectedRoute from 'routes/protectedRoute';
+import PrivateRoute from 'components/PrivateRoute';
 
 function App() {
   const loggedIn = window.localStorage.getItem('isloggedIn'  || null);
@@ -90,9 +92,12 @@ function App() {
               <Route path="/shippingInfo" element={<ShippingInfo1 />} />
               <Route path="/api/password/reset/:token" element={<ResetPassword />} />
               <Route path="/location" element={<LocationComponent/>} />
-              <Route path="/userOrderList" element={<OrdersTable1/>} />
-              <Route path="/order/confirm" element={                  
-                <ConfirmOrder />
+              <Route path="/userOrderList" element={ <ProtectedRoute><OrdersTable1/></ProtectedRoute>} />
+              <Route path="/order/confirm" element={   
+                <PrivateRoute>
+                  <ConfirmOrder />
+                </PrivateRoute>               
+                
               }
               />
               <Route
@@ -106,162 +111,166 @@ function App() {
               <Route
                 path="/order/:id"
                 element={
-        
+                  <ProtectedRoute>
                   <OrderDetails />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/myProfile/:id"
                 element={
-        
-                  <Profile />
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+                  
               
                 }
               />
               <Route
                 path="/updateProfile/:id"
                 element={
-                  
+                  <ProtectedRoute>
                   <UpdateProfile />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/dashboard"
                 element={
-                  
+                  <ProtectedRoute>
                   <DashboardPage />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/orderHistory"
                 element={
-                  
+                  <ProtectedRoute>
                   <OrdersHistory />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/orders"
                 element={
-                  
+                  <ProtectedRoute>  
                   <OrdersTable />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/order/:id"
                 element={
-                  
+                  <ProtectedRoute>
                   <OrderStatus />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/carousel/new"
                 element={
-                  
+                  <ProtectedRoute>
                   <CarouselForm />
-            
+                  </ProtectedRoute>
                 }
               />
                <Route
                 path="/admin/carousel/list"
                 element={
-                  
+                  <ProtectedRoute>
                   <CarousalTable />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/create"
                 element={
-                  
+                  <ProtectedRoute>
                   <CreateAdmin />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/updateCarousal/:id"
                 element={
-                  
+                  <ProtectedRoute>
                   <UpdateCarousal />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/create/restaurant"
                 element={
-        
+                  <ProtectedRoute>
                   <CreateRestaurant />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/updateMenu/:id"
                 element={
-        
+                  <ProtectedRoute>
                   <UpdateMenu />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/updateRestaurant/:id"
                 element={
-        
+                  <ProtectedRoute>
                   <EditRestaurant />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/users"
                 element={
-                  
+                  <ProtectedRoute>
                   <UsersList />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/menus"
                 element={
-                  
+                  <ProtectedRoute>
                   <MenuList />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/createMenu"
                 element={
-                  
+                  <ProtectedRoute>
                   <CreateMenu />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/customer/list"
                 element={
-                  
+                  <ProtectedRoute>
                   <CustomerList />
-              
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="/admin/restaurants"
                 element={
-                  
+                  <ProtectedRoute>
                   <RestaurantTable />
-              
+                  </ProtectedRoute>
                 }
               />
               {stripeApiKey && (
                 <Route
                   path="/payment"
                   element={
+                    <PrivateRoute>
                     <Elements stripe={loadStripe(stripeApiKey)}>
                       <Payment />
                     </Elements>
+                    </PrivateRoute>
                   }
                 />
               )}

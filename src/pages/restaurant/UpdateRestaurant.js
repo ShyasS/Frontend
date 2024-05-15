@@ -7,6 +7,7 @@ import { Card } from 'react-bootstrap';
 
 const EditRestaurant = () => {
   const { id: restaurantId } = useParams();
+  // const { id: restaurantId = "" } = useParams();
 
   const [formData, setFormData] = useState({
     restaurantName: '',
