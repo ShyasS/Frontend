@@ -53,12 +53,12 @@ const MenuList = ({
           <p>No menus found.</p>
         </div>
       ) : (
-        <Container>
+        <Container >
           <Row id="RowFourthComp" xs={12} sm={2} lg={4} md={2} className="mt-5">
             {menus.map((menuItem) => (
               <div key={menuItem._id} className="row">
-                <div>
-                  <Card style={{ width: '18rem' }} id="CardBackIMg1">
+                <div >
+                  <Card style={{ width: '18rem' }} id="CardBackIMg1" >
                     <Card.Img
                       variant="top"
                       src={

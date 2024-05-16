@@ -136,7 +136,7 @@ const LoginPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="btn  my-3 w-25 "
+                className="btn my-3 px-4 "
                 id="Btn"
                 style={{ backgroundColor: '#bd870b',borderRadius:'30px'  }}
               >

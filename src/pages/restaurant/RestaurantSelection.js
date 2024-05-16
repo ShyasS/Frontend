@@ -142,7 +142,7 @@ const RestaurantSelection = () => {
                 <div className="d-flex p-3 justify-content-start">
                   <button
                     onClick={handleGoBack}
-                    className="btn my-global-button text-white"
+                    className="btn my-global-button text-white px-4"
                     type="button"
                   >
                     <FaArrowLeft /> Back
@@ -238,7 +238,7 @@ const RestaurantSelection = () => {
               </Card.Body>
               <div className="modal-footer px-4">
                 <button
-                  className="btn my-global-button"
+                  className="btn my-global-button px-4"
                   onClick={handleContinue}
                 >
                   Continue

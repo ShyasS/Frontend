@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './contactUs.css';
+import Button from 'react-bootstrap/Button';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -39,14 +40,14 @@ const ContactUs = () => {
   return (
     <div id="CardText">
       {/* Button to open modal */}
-      <button
+      <Button
         type="button"
         data-bs-toggle="modal"
-        className="my-global-button"
+        className="my-global-button btn btn"
         data-bs-target="#contactModal"
       >
         Contact Us
-      </button>
+      </Button>
 
       {/* Modal */}
       <div

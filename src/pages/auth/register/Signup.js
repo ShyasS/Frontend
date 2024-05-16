@@ -50,12 +50,12 @@ const SignUpForm = () => {
 
   return (
     <div
-      className="container-fluid signup-form-container  py-5"
+      className="container-fluid   py-5"
       id="LoginMainImg"
     >
       <form onSubmit={handleSubmit}>
         <div
-          className="col-11 col-md-5 mx-auto custom-table mx-3 mt-4"
+          className="col-11 col-md-5 col-lg-6 mx-auto custom-table mx-3 mt-4"
           id="CardBackIMg1"
         >
           <div className="col-md-12 col-12 px-4">
@@ -262,8 +262,9 @@ const SignUpForm = () => {
             <div className="my-3 d-flex justify-content-center">
               <button
                 type="submit"
-                className="w-25 mt-4"
-                style={{ backgroundColor: '#bd870b',borderRadius:'30px' }}
+                className="btn my-3 px-4 mt-4 "
+                id="LoginImg1"
+                style={{ borderRadius:'30px' }}
               >
                 Sign up
               </button>

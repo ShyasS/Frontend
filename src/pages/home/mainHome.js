@@ -319,7 +319,7 @@ const Home = () => {
         </div>
       </Col>
       <div className="Product3Comp ">
-        <div style={{}} className="pt-3 float-end px-3" id="ShoppingCart">
+        <div className="pt-3 float-end px-3" id="ShoppingCart">
           <Button
             as={Link}
             to="/cart"
@@ -328,7 +328,9 @@ const Home = () => {
               backgroundColor: 'orange',
               color:'white' ,
               borderRadius: '30px',
-              marginTop:'40px'
+              marginTop:'40px',
+              position:'relative',
+              zIndex:99
             }}
           >
             <i className="fa-solid fa-cart-shopping fa-xl " />
@@ -340,7 +342,9 @@ const Home = () => {
               border: 'none',
               backgroundColor: 'orange', 
               borderRadius: '30px',
-              padding: '6px 26px'
+              padding: '6px 26px',
+              position:'relative',
+              zIndex:99
             }}
             className="filter-icon my-2 text-center"
             variant="light"
@@ -370,7 +374,7 @@ const Home = () => {
                 handleClearFilter={handleClearFilter}
               />
             )}
-            <Col className="mb-5" xs={12} md={12} lg={12} sm={1}>
+            <Col className="mb-5" xs={12} md={12} lg={12} sm={1} >
               <MenuList
                 menus={menus}
                 handleViewDetails={handleViewDetails}
